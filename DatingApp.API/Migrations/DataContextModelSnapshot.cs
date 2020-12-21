@@ -14,18 +14,24 @@ namespace DatingApp.API.Migrations
       modelBuilder
           .HasAnnotation("ProductVersion", "5.0.1");
 
-      modelBuilder.Entity("DatingApp.API.Models.Value", b =>
+      modelBuilder.Entity("DatingApp.API.Models.User", b =>
           {
             b.Property<int>("Id")
                       .ValueGeneratedOnAdd()
                       .HasColumnType("INTEGER");
 
-            b.Property<string>("Name")
+            b.Property<byte[]>("PasswordHash")
+                      .HasColumnType("BLOB");
+
+            b.Property<byte[]>("PasswordSalt")
+                      .HasColumnType("BLOB");
+
+            b.Property<string>("Username")
                       .HasColumnType("TEXT");
 
             b.HasKey("Id");
 
-            b.ToTable("Values");
+            b.ToTable("Users");
           });
 #pragma warning restore 612, 618
     }
