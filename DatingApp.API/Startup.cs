@@ -1,9 +1,13 @@
+using System;
+using System.Text.Json.Serialization;
 using DatingApp.API.Extensions;
 using DatingApp.API.Middleware;
+using DatingApp.API.SignalR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.OpenApi.Models;
 
 namespace DatingApp.API
 {
@@ -22,7 +26,52 @@ namespace DatingApp.API
     public void ConfigureServices(IServiceCollection services)
     {
       services.AddApplicationServices(_configuration);
+      // controllers without view
+      services.AddControllers()
+          .AddJsonOptions(options =>
+          {
+            options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+          });
+
+      // api cors for allowing methods that coming from different localhosts
+      services.AddCors();
+
+      // routing to lowercase
+      services.AddRouting(options => options.LowercaseUrls = true);
+
+      // swagger documentation for api
+      services.AddSwaggerGen(options =>
+            {
+              options.SwaggerDoc("v1", new OpenApiInfo
+              {
+                Version = "v1",
+                Title = "Api"
+              });
+              options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+              {
+                Description = "JWT Authorization header using the Bearer scheme (Example: Authorization: 'Bearer {token}')",
+                Name = "Authorization",
+                In = ParameterLocation.Header,
+                Type = SecuritySchemeType.ApiKey,
+                Scheme = "Bearer"
+              });
+              options.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                    new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            }
+                        },
+                        Array.Empty<string>()
+                    }
+                });
+            });
       services.AddIdentityServices(_configuration);
+      services.AddSignalR();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,6 +106,8 @@ namespace DatingApp.API
       app.UseEndpoints(endpoints =>
       {
         endpoints.MapControllers();
+        endpoints.MapHub<PresenceHub>("hubs/presence");
+        endpoints.MapHub<MessageHub>("hubs/message");
       });
     }
   }

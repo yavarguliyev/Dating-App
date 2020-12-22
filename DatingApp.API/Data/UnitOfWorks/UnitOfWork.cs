@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using AutoMapper;
+using DatingApp.API.Data.Repositories.Implementations;
 using DatingApp.API.Data.Repositories.Interfaces;
 
 namespace DatingApp.API.Data.UnitOfWorks
@@ -8,26 +9,27 @@ namespace DatingApp.API.Data.UnitOfWorks
   {
     private readonly IMapper _mapper;
     private readonly DataContext _context;
+
     public UnitOfWork(DataContext context, IMapper mapper)
     {
       _context = context;
       _mapper = mapper;
     }
 
-    public IUserRepository UserRepository => throw new System.NotImplementedException();
+    public IUserRepository UserRepository => new UserRepository(_context, _mapper);
 
-    public IMessageRepository MessageRepository => throw new System.NotImplementedException();
+    public IMessageRepository MessageRepository => new MessageRepository(_context, _mapper);
 
-    public ILikesRepository LikesRepository => throw new System.NotImplementedException();
+    public ILikesRepository LikesRepository => new LikesRepository(_context);
 
-    public Task<bool> Complete()
+    public async Task<bool> Complete()
     {
-      throw new System.NotImplementedException();
+      return await _context.SaveChangesAsync() > 0;
     }
 
     public bool HasChanges()
     {
-      throw new System.NotImplementedException();
+      return _context.ChangeTracker.HasChanges();
     }
   }
 }

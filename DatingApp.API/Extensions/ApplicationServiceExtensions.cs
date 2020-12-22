@@ -1,13 +1,15 @@
 using System;
-using System.Text.Json.Serialization;
 using AutoMapper;
 using DatingApp.API.Data;
+using DatingApp.API.Data.Repositories.Implementations;
+using DatingApp.API.Data.Repositories.Interfaces;
 using DatingApp.API.Data.UnitOfWorks;
+using DatingApp.API.Helpers;
 using DatingApp.API.Mappings;
+using DatingApp.API.SignalR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.OpenApi.Models;
 
 namespace DatingApp.API.Extensions
 {
@@ -15,55 +17,18 @@ namespace DatingApp.API.Extensions
   {
     public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration config)
     {
-      // controllers without view
-      services.AddControllers()
-          .AddJsonOptions(options =>
-          {
-            options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
-          });
-
-      // api cors for allowing methods that coming from different localhosts
-      services.AddCors();
-
-      // routing to lowercase
-      services.AddRouting(options => options.LowercaseUrls = true);
-
-      // swagger documentation for api
-      services.AddSwaggerGen(options =>
-            {
-              options.SwaggerDoc("v1", new OpenApiInfo
-              {
-                Version = "v1",
-                Title = "Api"
-              });
-              options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-              {
-                Description = "JWT Authorization header using the Bearer scheme (Example: Authorization: 'Bearer {token}')",
-                Name = "Authorization",
-                In = ParameterLocation.Header,
-                Type = SecuritySchemeType.ApiKey,
-                Scheme = "Bearer"
-              });
-              options.AddSecurityRequirement(new OpenApiSecurityRequirement
-                {
-                    {
-                    new OpenApiSecurityScheme
-                        {
-                            Reference = new OpenApiReference
-                            {
-                                Type = ReferenceType.SecurityScheme,
-                                Id = "Bearer"
-                            }
-                        },
-                        Array.Empty<string>()
-                    }
-                });
-            });
-
       // Auto Mapper
       services.AddAutoMapper(typeof(MapperProfiles).Assembly);
       // Unif of Works
       services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+      services.AddSingleton<PresenceTracker>();
+      services.Configure<CloudinarySettings>(config.GetSection("CloudinarySettings"));
+      services.AddScoped<ITokenService, TokenService>();
+      services.AddScoped<IPhotoService, PhotoService>();
+      services.AddScoped<IUnitOfWork, UnitOfWork>();
+      services.AddScoped<LogUserActivity>();
+
       // Database connection 
       services.AddDbContext<DataContext>(options =>
       {
