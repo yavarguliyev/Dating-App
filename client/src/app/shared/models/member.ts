@@ -1,4 +1,4 @@
-import { IPhoto } from "./photo";
+import { IPhoto } from './photo';
 
 export interface IMember {
     id: number;

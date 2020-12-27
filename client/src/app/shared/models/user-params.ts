@@ -1,6 +1,6 @@
-import { IUser } from "./user";
+import { IUser } from './user';
 
-export class IUserParams {
+export class UserParams {
     gender: string;
     minAge = 18;
     maxAge = 99;

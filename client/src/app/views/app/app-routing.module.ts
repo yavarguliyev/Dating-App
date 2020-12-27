@@ -10,6 +10,7 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'home' },
       { path: 'home', component: HomeComponent },
+      { path: 'members', loadChildren: () => import('./members/members.module').then(m => m.MembersModule) },
     ]
   }
 ];

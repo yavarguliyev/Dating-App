@@ -4,6 +4,7 @@
     "codelyzer"
   ],
   "rules": {
+    "no-shadowed-variable": false,
     "align": {
       "options": [
         "parameters",
@@ -83,12 +84,11 @@
       }
     },
     "typedef": [
-      true,
+      false,
       "call-signature"
     ],
     "typedef-whitespace": {
-      "options": [
-        {
+      "options": [{
           "call-signature": "nospace",
           "index-signature": "nospace",
           "parameter": "nospace",

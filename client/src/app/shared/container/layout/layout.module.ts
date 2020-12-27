@@ -7,7 +7,7 @@ import { HasRoleDirective } from '../../directives/has-role.directive';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 @NgModule({
-  declarations: [NavComponent],
+  declarations: [NavComponent, HasRoleDirective],
   imports: [
     CommonModule,
     RouterModule,
@@ -18,8 +18,6 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
   exports: [
     NavComponent
   ],
-  providers: [
-    HasRoleDirective
-  ]
+  providers: []
 })
 export class LayoutModule { }
