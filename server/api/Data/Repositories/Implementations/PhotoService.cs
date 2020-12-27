@@ -17,7 +17,7 @@ namespace DatingApp.api.Data.Repositories.Implementations
       (
           config.Value.CloudName,
           config.Value.ApiKey,
-          config.Value.ApiKey
+          config.Value.ApiSecret
       );
 
       _cloudinary = new Cloudinary(acc);

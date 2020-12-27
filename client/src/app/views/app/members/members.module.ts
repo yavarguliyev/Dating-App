@@ -13,6 +13,10 @@ import { MemberListComponent } from './member-list/member-list.component';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { FormsModule } from '@angular/forms';
 import { LayoutModule } from 'src/app/shared/container/layout/layout.module';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import {NgxGalleryModule} from '@kolkov/ngx-gallery';
+import { TimeagoModule } from 'ngx-timeago';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -29,8 +33,12 @@ import { LayoutModule } from 'src/app/shared/container/layout/layout.module';
     CommonModule,
     MembersRoutingModule,
     PaginationModule.forRoot(),
+    TabsModule.forRoot(),
+    TimeagoModule.forRoot(),
+    NgxGalleryModule,
     FormsModule,
-    LayoutModule
+    LayoutModule,
+    RouterModule
   ],
 })
 export class MembersModule {}

@@ -5,14 +5,14 @@ import { MembersService } from 'src/app/shared/services/members.service';
 
 @Component({
   selector: 'app-list',
-  templateUrl: './list.component.html'
+  templateUrl: './list.component.html',
 })
 export class ListComponent implements OnInit {
   members!: Partial<IMember[]>;
   predicate = 'liked';
   pageNumber = 1;
   pageSize = 5;
-  pagination!: IPagination;
+  pagination: IPagination | undefined;
 
   constructor(private memberService: MembersService) {}
 
@@ -24,8 +24,10 @@ export class ListComponent implements OnInit {
     this.memberService
       .getLikes(this.predicate, this.pageNumber, this.pageSize)
       .subscribe((response) => {
-        this.members = response.result;
-        this.pagination = response.pagination;
+        if (response.result !== undefined) {
+          this.members = response.result;
+          this.pagination = response.pagination;
+        }
       });
   }
 

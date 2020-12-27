@@ -86,7 +86,7 @@ namespace api
                             .AllowAnyHeader()
                             .AllowAnyMethod()
                             .WithExposedHeaders("WWW-Authenticate")
-                            .WithOrigins("http://localhost:4200")
+                            .WithOrigins("http://localhost:4200", "https://localhost:4200")
                             .AllowCredentials());
 
             app.UseAuthentication();

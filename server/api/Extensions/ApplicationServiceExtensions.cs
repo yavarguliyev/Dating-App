@@ -23,7 +23,7 @@ namespace DatingApp.api.Extensions
       services.AddScoped<IUnitOfWork, UnitOfWork>();
 
       services.AddSingleton<PresenceTracker>();
-      services.Configure<CloudinarySettings>(config.GetSection("CloudinarySettings"));
+      services.Configure<CloudinarySettings>(config.GetSection("Cloudinary"));
       services.AddScoped<ITokenService, TokenService>();
       services.AddScoped<IPhotoService, PhotoService>();
       services.AddScoped<IUnitOfWork, UnitOfWork>();
