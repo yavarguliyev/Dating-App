@@ -25,7 +25,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     NgxSpinnerModule,
     LayoutModule,
     RouterModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
