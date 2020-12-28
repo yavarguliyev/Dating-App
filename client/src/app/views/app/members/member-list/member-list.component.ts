@@ -7,13 +7,13 @@ import { MembersService } from 'src/app/shared/services/members.service';
 
 @Component({
   selector: 'app-member-list',
-  templateUrl: './member-list.component.html'
+  templateUrl: './member-list.component.html',
 })
 export class MemberListComponent implements OnInit {
-  members: IMember[] = [];
-  pagination: IPagination | undefined;
-  userParams!: UserParams;
-  user!: IUser;
+  members: IMember[];
+  pagination: IPagination;
+  userParams: UserParams;
+  user: IUser;
   genderList = [
     { value: 'male', display: 'Males' },
     { value: 'female', display: 'Females' },

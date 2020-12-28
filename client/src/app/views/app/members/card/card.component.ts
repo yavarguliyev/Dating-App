@@ -10,7 +10,7 @@ import { ToasterService } from 'src/app/shared/services/toaster.service';
   styleUrls: ['./card.component.css'],
 })
 export class CardComponent implements OnInit {
-  @Input() member!: IMember;
+  @Input() member: IMember;
 
   constructor(
     private memberService: MembersService,
@@ -22,7 +22,7 @@ export class CardComponent implements OnInit {
 
   addLike(member: IMember) {
     this.memberService.addLike(member.username).subscribe(() => {
-      this.toastr.success('You have liked ' + member.knownAs, 'Member');
+      this.toastr.success('You have liked ' + member.knownAs, '');
     });
   }
 }

@@ -15,8 +15,8 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
   @Output() cancelRegister = new EventEmitter();
-  registerForm!: FormGroup;
-  maxDate!: Date;
+  registerForm: FormGroup;
+  maxDate: Date;
   validationErrors: string[] = [];
 
   constructor(
@@ -35,27 +35,24 @@ export class RegisterComponent implements OnInit {
     this.registerForm = this.fb.group({
       gender: ['male'],
       username: ['', Validators.required],
-      // knownAs: ['', Validators.required],
-      // dateOfBirth: ['', Validators.required],
-      // city: ['', Validators.required],
-      // country: ['', Validators.required],
-      // password: [
-      //   '',
-      //   [Validators.required, Validators.minLength(4), Validators.maxLength(8)],
-      // ],
-      // confirmPassword: [
-      //   '',
-      //   [Validators.required, this.matchValues('password')],
-      // ],
+      knownAs: ['', Validators.required],
+      dateOfBirth: ['', Validators.required],
+      city: ['', Validators.required],
+      country: ['', Validators.required],
+      password: [
+        '',
+        [Validators.required, Validators.minLength(4), Validators.maxLength(8)],
+      ],
+      confirmPassword: [
+        '',
+        [Validators.required, this.matchValues('password')],
+      ],
     });
   }
 
   matchValues(matchTo: string): ValidatorFn {
     return (control: AbstractControl) => {
-      return control.value ===
-        (control?.parent?.controls as { [key: string]: AbstractControl })[
-          matchTo
-        ].value
+      return control?.value === control?.parent?.controls[matchTo].value
         ? null
         : { isMatching: true };
     };
@@ -64,7 +61,7 @@ export class RegisterComponent implements OnInit {
   register() {
     this.accountService.register(this.registerForm.value).subscribe(
       (response) => {
-        this.router.navigateByUrl('/app/members/member-list');
+        this.router.navigateByUrl('/members');
       },
       (error) => {
         this.validationErrors = error;

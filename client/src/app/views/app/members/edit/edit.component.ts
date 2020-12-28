@@ -13,10 +13,9 @@ import { ToasterService } from 'src/app/shared/services/toaster.service';
   styleUrls: ['./edit.component.css'],
 })
 export class EditComponent implements OnInit {
-  @ViewChild('editForm') editForm!: NgForm;
-  member!: IMember;
-  user!: IUser;
-
+  @ViewChild('editForm') editForm: NgForm;
+  member: IMember;
+  user: IUser;
   @HostListener('window:beforeunload', ['$event']) unloadNotification(
     $event: any
   ) {
@@ -47,7 +46,7 @@ export class EditComponent implements OnInit {
 
   updateMember() {
     this.memberService.updateMember(this.member).subscribe(() => {
-      this.toastr.success('Profile updated successfully', 'Update');
+      this.toastr.success('Profile updated successfully', '');
       this.editForm.reset(this.member);
     });
   }

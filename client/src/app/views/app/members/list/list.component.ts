@@ -8,11 +8,11 @@ import { MembersService } from 'src/app/shared/services/members.service';
   templateUrl: './list.component.html',
 })
 export class ListComponent implements OnInit {
-  members!: Partial<IMember[]>;
+  members: Partial<IMember[]>;
   predicate = 'liked';
   pageNumber = 1;
   pageSize = 5;
-  pagination: IPagination | undefined;
+  pagination: IPagination;
 
   constructor(private memberService: MembersService) {}
 
@@ -23,11 +23,14 @@ export class ListComponent implements OnInit {
   loadLikes() {
     this.memberService
       .getLikes(this.predicate, this.pageNumber, this.pageSize)
-      .subscribe((response) => {
-        if (response.result !== undefined) {
+      .subscribe({
+        next: (response) => {
           this.members = response.result;
           this.pagination = response.pagination;
-        }
+        },
+        error: (error) => {
+          console.log(error);
+        },
       });
   }
 

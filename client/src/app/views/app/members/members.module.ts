@@ -16,6 +16,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import {NgxGalleryModule} from '@kolkov/ngx-gallery';
 import { TimeagoModule } from 'ngx-timeago';
 import { MessagesComponent } from './messages/messages.component';
+import {FileUploadModule} from 'ng2-file-upload';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { MessagesComponent } from './messages/messages.component';
     TimeagoModule.forRoot(),
     NgxGalleryModule,
     FormsModule,
-    LayoutModule
+    LayoutModule,
+    FileUploadModule
   ],
 })
 export class MembersModule {}

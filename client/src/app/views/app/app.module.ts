@@ -8,9 +8,10 @@ import { HelperComponentsModule } from 'src/app/shared/helper-components/helper-
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { FormsModule } from '@angular/forms';
 import { TimeagoModule } from 'ngx-timeago';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent, HomeComponent, MessagesComponent],
   imports: [
     CommonModule,
     AppRoutingModule,

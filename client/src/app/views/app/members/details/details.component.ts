@@ -1,4 +1,3 @@
-import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { TabDirective, TabsetComponent } from 'ngx-bootstrap/tabs';
 import { IMember } from 'src/app/shared/models/member';
@@ -13,6 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from 'src/app/shared/services/message.service';
 import { AccountService } from 'src/app/shared/services/account.service';
 import { take } from 'rxjs/operators';
+import { IMessage } from 'src/app/shared/models/message';
 
 @Component({
   selector: 'app-details',
@@ -20,13 +20,13 @@ import { take } from 'rxjs/operators';
   styleUrls: ['./details.component.css'],
 })
 export class DetailsComponent implements OnInit, OnDestroy {
-  @ViewChild('memberTabs', { static: true }) memberTabs!: TabsetComponent;
-  member!: IMember;
-  galleryOptions: NgxGalleryOptions[] = [];
-  galleryImages: NgxGalleryImage[] = [];
-  activeTab: TabDirective | undefined;
-  messages: Message[] = [];
-  user!: IUser;
+  @ViewChild('memberTabs', { static: true }) memberTabs: TabsetComponent;
+  member: IMember;
+  galleryOptions: NgxGalleryOptions[];
+  galleryImages: NgxGalleryImage[];
+  activeTab: TabDirective;
+  messages: IMessage[] = [];
+  user: IUser;
 
   constructor(
     public presence: PresenceService,
@@ -80,7 +80,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
     this.messageService
       .getMessageThread(this.member.username)
       .subscribe((messages) => {
-        this.messages = messages = [];
+        this.messages = messages;
       });
   }
 
