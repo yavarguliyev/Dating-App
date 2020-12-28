@@ -6,15 +6,15 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
   templateUrl: './confirm-dialog.component.html',
 })
 export class ConfirmDialogComponent implements OnInit {
-  title: string = '';
-  message: string = '';
-  btnOkText: string = '';
-  btnCancelText: string = '';
-  result: boolean = false;
+  title: string;
+  message: string;
+  btnOkText: string;
+  btnCancelText: string;
+  result: boolean;
 
   constructor(public bsModalRef: BsModalRef) {}
 
-  ngOnInit(): void {}
+  ngOnInit() {}
 
   confirm() {
     this.result = true;

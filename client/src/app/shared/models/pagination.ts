@@ -6,6 +6,6 @@ export interface IPagination {
 }
 
 export class PaginatedResult<T> {
-  result: T | undefined;
-  pagination: IPagination | undefined;
+  result: T;
+  pagination: IPagination;
 }

@@ -30,7 +30,7 @@ export class ErrorInterceptor implements HttpInterceptor {
                     modalStateErrors.push(error.error.errors[key]);
                   }
                 }
-                throw modalStateErrors;
+                throw modalStateErrors.flat();
               } else if (typeof error.error === 'object') {
                 this.toastr.danger(error.statusText, error.status);
               } else {
@@ -50,10 +50,7 @@ export class ErrorInterceptor implements HttpInterceptor {
               this.router.navigateByUrl('/server-error', navigationExtras);
               break;
             default:
-              this.toastr.danger(
-                'Something unexpected went wrong',
-                'Unexpected'
-              );
+              this.toastr.danger('Something unexpected went wrong', '');
               console.log(error);
               break;
           }

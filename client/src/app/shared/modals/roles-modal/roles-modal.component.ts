@@ -8,8 +8,8 @@ import { IUser } from '../../models/user';
 })
 export class RolesModalComponent implements OnInit {
   @Input() updateSelectedRoles = new EventEmitter();
-  user: IUser | undefined;
-  roles: any[] = [];
+  user: IUser;
+  roles: any[];
 
   constructor(public bsModalRef: BsModalRef) {}
 

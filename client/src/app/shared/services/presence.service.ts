@@ -12,7 +12,7 @@ import { ToasterService } from './toaster.service';
 })
 export class PresenceService {
   hubUrl = environment.hubUrl;
-  private hubConnection!: HubConnection;
+  private hubConnection: HubConnection;
   private onlineUsersSource = new BehaviorSubject<string[]>([]);
   onlineUsers$ = this.onlineUsersSource.asObservable();
 

@@ -16,7 +16,7 @@ import { getPaginatedResult, getPaginationHeaders } from './pagination-helper';
 export class MessageService {
   baseUrl = environment.apiUrl;
   hubUrl = environment.hubUrl;
-  private hubConnection!: HubConnection;
+  private hubConnection: HubConnection;
   private messageThreadSource = new BehaviorSubject<IMessage[]>([]);
   messageThread$ = this.messageThreadSource.asObservable();
 
@@ -67,7 +67,7 @@ export class MessageService {
     }
   }
 
-  getMessages(pageNumber: number, pageSize: number, container: string) {
+  getMessages(pageNumber, pageSize, container) {
     let params = getPaginationHeaders(pageNumber, pageSize);
     params = params.append('Container', container);
     return getPaginatedResult<IMessage[]>(

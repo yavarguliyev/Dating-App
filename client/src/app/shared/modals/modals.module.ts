@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { RolesModalComponent } from './roles-modal/roles-modal.component';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   imports: [
     CommonModule,
     ModalModule
   ],
-  declarations: [ConfirmDialogComponent, RolesModalComponent],
+  declarations: [RolesModalComponent, ConfirmDialogComponent],
   exports: [
-    ConfirmDialogComponent,
-    RolesModalComponent
+    RolesModalComponent,
+    ConfirmDialogComponent
   ]
 })
 export class ModalsModule { }

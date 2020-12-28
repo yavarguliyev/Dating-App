@@ -1,16 +1,19 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, CanDeactivate } from '@angular/router';
+import { CanDeactivate } from '@angular/router';
 import { Observable } from 'rxjs';
+import { EditComponent } from 'src/app/views/app/members/edit/edit.component';
 import { ConfirmService } from '../services/confirm.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PreventUnsavedChangesGuard implements CanDeactivate<unknown> {
   constructor(private confirmService: ConfirmService) {}
-  
-  canDeactivate(component: unknown, currentRoute: ActivatedRouteSnapshot, currentState: RouterStateSnapshot, nextState?: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-    throw new Error('Method not implemented.');
+
+  canDeactivate(component: EditComponent): Observable<boolean> | boolean {
+    if (component.editForm.dirty) {
+      return this.confirmService.confirm();
+    }
+    return true;
   }
-  
 }

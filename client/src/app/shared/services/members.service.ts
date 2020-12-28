@@ -16,8 +16,8 @@ export class MembersService {
   baseUrl = environment.apiUrl;
   members: IMember[] = [];
   memberCache = new Map();
-  user!: IUser;
-  userParams!: UserParams;
+  user: IUser;
+  userParams: UserParams;
 
   constructor(
     private http: HttpClient,
@@ -102,7 +102,7 @@ export class MembersService {
     return this.http.post(this.baseUrl + 'likes/' + username, {});
   }
 
-  getLikes(predicate: string, pageNumber: any, pageSize: any) {
+  getLikes(predicate: string, pageNumber, pageSize) {
     let params = getPaginationHeaders(pageNumber, pageSize);
     params = params.append('predicate', predicate);
     return getPaginatedResult<Partial<IMember[]>>(

@@ -13,8 +13,8 @@ import { take } from 'rxjs/operators';
   selector: '[appHasRole]',
 })
 export class HasRoleDirective implements OnInit {
-  @Input() appHasRole: string[] = [];
-  user: IUser | undefined;
+  @Input() appHasRole: string[];
+  user: IUser;
 
   constructor(
     private viewContainerRef: ViewContainerRef,
