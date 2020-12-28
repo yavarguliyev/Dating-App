@@ -6,7 +6,6 @@ import { MembersComponent } from './members.component';
 import { ListComponent } from './list/list.component';
 import { EditComponent } from './edit/edit.component';
 import { DetailsComponent } from './details/details.component';
-import { MessagesComponent } from './messages/messages.component';
 import { PhotoEditorComponent } from './photo-editor/photo-editor.component';
 import { CardComponent } from './card/card.component';
 import { MemberListComponent } from './member-list/member-list.component';
@@ -16,7 +15,7 @@ import { LayoutModule } from 'src/app/shared/container/layout/layout.module';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import {NgxGalleryModule} from '@kolkov/ngx-gallery';
 import { TimeagoModule } from 'ngx-timeago';
-import { RouterModule } from '@angular/router';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -24,10 +23,10 @@ import { RouterModule } from '@angular/router';
     ListComponent,
     EditComponent,
     DetailsComponent,
-    MessagesComponent,
     PhotoEditorComponent,
     CardComponent,
     MemberListComponent,
+    MessagesComponent
   ],
   imports: [
     CommonModule,
@@ -37,8 +36,7 @@ import { RouterModule } from '@angular/router';
     TimeagoModule.forRoot(),
     NgxGalleryModule,
     FormsModule,
-    LayoutModule,
-    RouterModule
+    LayoutModule
   ],
 })
 export class MembersModule {}

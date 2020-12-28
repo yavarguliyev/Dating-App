@@ -5,7 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HelperComponentsModule } from 'src/app/shared/helper-components/helper-components.module';
-import { LayoutModule } from 'src/app/shared/container/layout/layout.module';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { FormsModule } from '@angular/forms';
+import { TimeagoModule } from 'ngx-timeago';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
@@ -13,7 +15,9 @@ import { LayoutModule } from 'src/app/shared/container/layout/layout.module';
     CommonModule,
     AppRoutingModule,
     HelperComponentsModule,
-    LayoutModule
+    PaginationModule.forRoot(),
+    FormsModule,
+    TimeagoModule.forRoot(),
   ]
 })
 export class AppModule { }

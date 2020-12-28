@@ -11,6 +11,7 @@ const routes: Routes = [
       { path: '', redirectTo: 'home' },
       { path: 'home', component: HomeComponent },
       { path: 'members', loadChildren: () => import('./members/members.module').then(m => m.MembersModule) },
+      { path: 'errors', loadChildren: () => import('./errors/errors.module').then(m => m.ErrorsModule) },
     ]
   }
 ];

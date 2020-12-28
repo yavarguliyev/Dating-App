@@ -3,10 +3,10 @@ import { ControlValueAccessor, NgControl } from '@angular/forms';
 
 @Component({
   selector: 'app-text-input',
-  templateUrl: './text-input.component.html'
+  templateUrl: './text-input.component.html',
 })
-export class TextInputComponent implements ControlValueAccessor  {
-  @Input() label: string = '';
+export class TextInputComponent implements ControlValueAccessor {
+  @Input() label!: string;
   @Input() type = 'text';
 
   constructor(@Self() public ngControl: NgControl) {
