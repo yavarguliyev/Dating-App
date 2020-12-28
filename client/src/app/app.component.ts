@@ -5,12 +5,10 @@ import { PresenceService } from './shared/services/presence.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
   title = 'Dating App';
-
   users: any;
 
   constructor(
@@ -23,9 +21,10 @@ export class AppComponent implements OnInit {
   }
 
   setCurrentUser() {
-    const user: IUser = JSON.parse(localStorage.getItem('user') || '{}');
+    const user: IUser = JSON.parse(localStorage.getItem('user'));
     if (user) {
       this.accountService.setCurrentUser(user);
+      this.presence.createHubConnection(user);
     }
   }
 }

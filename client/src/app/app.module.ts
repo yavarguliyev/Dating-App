@@ -11,6 +11,8 @@ import { JwtInterceptor } from './shared/interceptors/jwt.interceptor';
 import { LoadingInterceptor } from './shared/interceptors/loading.interceptor';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { LayoutModule } from './shared/container/layout/layout.module';
+import { RouterModule } from '@angular/router';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,12 +23,14 @@ import { LayoutModule } from './shared/container/layout/layout.module';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     NgxSpinnerModule,
-    LayoutModule
+    LayoutModule,
+    RouterModule,
+    ModalModule.forRoot()
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
 })

@@ -18,7 +18,7 @@ import { MessagesComponent } from './messages/messages.component';
     HelperComponentsModule,
     PaginationModule.forRoot(),
     FormsModule,
-    TimeagoModule.forRoot(),
+    TimeagoModule.forRoot()
   ]
 })
 export class AppModule { }

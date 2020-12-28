@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ModalModule } from 'ngx-bootstrap/modal';
@@ -7,7 +8,8 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
 @NgModule({
   imports: [
     CommonModule,
-    ModalModule
+    ModalModule,
+    FormsModule
   ],
   declarations: [RolesModalComponent, ConfirmDialogComponent],
   exports: [

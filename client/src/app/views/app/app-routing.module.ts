@@ -1,15 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
-import { AuthGuard } from 'src/app/shared/guards/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { MessagesComponent } from './messages/messages.component';
 
 const routes: Routes = [
   {
     path: '',
-    runGuardsAndResolvers: 'always',
-    canActivate: [AuthGuard],
     component: AppComponent,
     children: [
       { path: '', redirectTo: 'home' },
