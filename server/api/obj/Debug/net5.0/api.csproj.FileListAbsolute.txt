@@ -1,10 +1,3 @@
-C:\Users\MacBook\Desktop\Dating-App\server\api\obj\Debug\net5.0\api.csprojAssemblyReference.cache
-C:\Users\MacBook\Desktop\Dating-App\server\api\obj\Debug\net5.0\api.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\MacBook\Desktop\Dating-App\server\api\obj\Debug\net5.0\api.AssemblyInfoInputs.cache
-C:\Users\MacBook\Desktop\Dating-App\server\api\obj\Debug\net5.0\api.AssemblyInfo.cs
-C:\Users\MacBook\Desktop\Dating-App\server\api\obj\Debug\net5.0\api.csproj.CoreCompileInputs.cache
-C:\Users\MacBook\Desktop\Dating-App\server\api\obj\Debug\net5.0\api.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\MacBook\Desktop\Dating-App\server\api\obj\Debug\net5.0\api.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\MacBook\Desktop\Dating-App\server\api\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\MacBook\Desktop\Dating-App\server\api\bin\Debug\net5.0\appsettings.json
 C:\Users\MacBook\Desktop\Dating-App\server\api\bin\Debug\net5.0\Data\UserSeedData.json
@@ -18,6 +11,7 @@ C:\Users\MacBook\Desktop\Dating-App\server\api\bin\Debug\net5.0\api.pdb
 C:\Users\MacBook\Desktop\Dating-App\server\api\bin\Debug\net5.0\AutoMapper.dll
 C:\Users\MacBook\Desktop\Dating-App\server\api\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\MacBook\Desktop\Dating-App\server\api\bin\Debug\net5.0\CloudinaryDotNet.dll
+C:\Users\MacBook\Desktop\Dating-App\server\api\bin\Debug\net5.0\Humanizer.dll
 C:\Users\MacBook\Desktop\Dating-App\server\api\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\MacBook\Desktop\Dating-App\server\api\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.OpenIdConnect.dll
 C:\Users\MacBook\Desktop\Dating-App\server\api\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
@@ -27,6 +21,7 @@ C:\Users\MacBook\Desktop\Dating-App\server\api\bin\Debug\net5.0\Microsoft.AspNet
 C:\Users\MacBook\Desktop\Dating-App\server\api\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
 C:\Users\MacBook\Desktop\Dating-App\server\api\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
 C:\Users\MacBook\Desktop\Dating-App\server\api\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\MacBook\Desktop\Dating-App\server\api\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\MacBook\Desktop\Dating-App\server\api\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\MacBook\Desktop\Dating-App\server\api\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Users\MacBook\Desktop\Dating-App\server\api\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
@@ -59,6 +54,12 @@ C:\Users\MacBook\Desktop\Dating-App\server\api\bin\Debug\net5.0\runtimes\win-x86
 C:\Users\MacBook\Desktop\Dating-App\server\api\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 C:\Users\MacBook\Desktop\Dating-App\server\api\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\MacBook\Desktop\Dating-App\server\api\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\MacBook\Desktop\Dating-App\server\api\obj\Debug\net5.0\api.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\MacBook\Desktop\Dating-App\server\api\obj\Debug\net5.0\api.AssemblyInfoInputs.cache
+C:\Users\MacBook\Desktop\Dating-App\server\api\obj\Debug\net5.0\api.AssemblyInfo.cs
+C:\Users\MacBook\Desktop\Dating-App\server\api\obj\Debug\net5.0\api.csproj.CoreCompileInputs.cache
+C:\Users\MacBook\Desktop\Dating-App\server\api\obj\Debug\net5.0\api.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\MacBook\Desktop\Dating-App\server\api\obj\Debug\net5.0\api.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\MacBook\Desktop\Dating-App\server\api\obj\Debug\net5.0\staticwebassets\api.StaticWebAssets.Manifest.cache
 C:\Users\MacBook\Desktop\Dating-App\server\api\obj\Debug\net5.0\staticwebassets\api.StaticWebAssets.xml
 C:\Users\MacBook\Desktop\Dating-App\server\api\obj\Debug\net5.0\scopedcss\bundle\api.styles.css
@@ -68,5 +69,3 @@ C:\Users\MacBook\Desktop\Dating-App\server\api\obj\Debug\net5.0\api.dll
 C:\Users\MacBook\Desktop\Dating-App\server\api\obj\Debug\net5.0\ref\api.dll
 C:\Users\MacBook\Desktop\Dating-App\server\api\obj\Debug\net5.0\api.pdb
 C:\Users\MacBook\Desktop\Dating-App\server\api\obj\Debug\net5.0\api.genruntimeconfig.cache
-C:\Users\MacBook\Desktop\Dating-App\server\api\bin\Debug\net5.0\Humanizer.dll
-C:\Users\MacBook\Desktop\Dating-App\server\api\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
